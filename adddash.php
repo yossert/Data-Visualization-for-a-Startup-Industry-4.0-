@@ -81,9 +81,9 @@
                 <span class="material-icons-sharp">calendar_month</span>
                 <h3>Calendar</h3>
                 </a>
-                <a href="./changerpass.php">
-                <span class="material-symbols-outlined">lock</span>
-                <h3>Change Password</h3>
+                <a href="#">
+                <span class="material-icons-sharp">stacked_line_chart</span>
+                <h3>Line Graph</h3>
                 </a>
                 <a href="#">
                 <span class="material-icons-sharp">incomplete_circle</span>

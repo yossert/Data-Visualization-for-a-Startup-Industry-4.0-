@@ -1,76 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,
-initial-scale=1.0">
 
-<!-- bootstrap -->
-<link rel="stylesheet" href ="css/bootstrap.min.css">
+<?php
+include_once('../dbConnection.php');
 
-<!-- front awesome css-->
-<link rel="stylesheet" href="css/all.min.css">
-
-<!-- testimonial owl slider css-->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="css/owl.testyslider.css">
-
-<!-- google font -->
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@1,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@1,700&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-<!-- lien avec css-->
-<link rel="stylesheet" href="css/style.css">
-
-<title>4IOT</title>
-</head>
-<style>
-    .bottom-banner{
-    color: #fff;
-    padding: 10px;
+if(!isset($_SESSION)){
+    session_start();
 }
+if(isset($_SESSION['is_login'])){
+    $stuLogEmail = $_SESSION['stuLogEmail'];
+}
+//else {
+ //   echo"<script> location.href='../index.php'; </script>";}
+
+if(isset($stuLogEmail)){
+    $sql = "SELECT stu From student WHERE stu_email = '$stuLogEmail'";
+    $result = $conn -> query($sql);
+    $row = $result->fetch_assoc();
+    $stu = $row['stu'];
+}
+?>
+    
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+        <title>User Dashboard Template</title>
+
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
+
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap.min.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
 
 
+        <!-- Custom styles for this template -->
+        <link href="dashboard.css" rel="stylesheet">
+    </head>
 
-</style>
-<body>
-    <!--start navigation -->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark pl-5 fixed-top">
-        <a class="navbar-brand" href="index.php">4IOT</a>
-        <span class="navbar-text">Contrôle Connecté Innovant</span>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <ul class="navbar-nav custom-nav pl-5">
-                <li class="nav-item custom-nav-item"><a href="index.php" class="nav-link">Home</a></li>
-                <li class="nav-item custom-nav-item"><a href="aboutus.php" class="nav-link">About Us</a></li>
-                <?php 
-                    session_start();
-                    if(isset($_SESSION['is_login'])){
-                        echo'
-                        <li class="nav-item custom-nav-item"><a href="../visitor/studentProfile.php" class="nav-link">My Profile</a></li>
-                        <li class="nav-item custom-nav-item"><a href="../Admin/topic.php" class="nav-link">Topic</a></li>
-                        <li class="nav-item custom-nav-item"><a href="logout.php" class="nav-link">Logout</a></li>
-                        ';
-                    }else{
-                        echo '
-                        <li class="nav-item custom-nav-item"><a href="#" class="nav-link" data-toggle="modal" data-target="#stuRegModalCenter">Signup</a></li>
-                        <li class="nav-item custom-nav-item"><a href="#" class="nav-link" data-toggle="modal" data-target="#stuLoginModalCenter">Login</a></li>
-                        ';
-                    }
-                ?>
+    <body>
+        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
+            </li>
+        </ul>
+        </nav>
+        <!-- side bar -->
+        <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                <li class="nav-item mb-3">
+                    <img src="<?php echo $stu ?>" alt="user" class="img-thumbnail rounded-circle">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="studentProfile.php">
+                    <span data-feather="home"></span>
+                    Profile <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Admin/topic.php">
+                    <span data-feather="file"></span>
+                    Topic
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stufeedback.php">
+                    <span data-feather="shopping-cart"></span>
+                    Feedback
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="studentChangePass.php">
+                    <span data-feather="users"></span>
+                    Change Password
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../logout.php">
+                    <span data-feather="bar-chart-2"></span>
+                    Logout
+                    </a>
+                </li>
                 
-                
-                <li class="nav-item custom-nav-item"><a href="#" class="nav-link">Contact</a></li>
-                <li class="nav-item custom-nav-item"><a href="#" class="nav-link">Feedback</a></li>
-            </ul>
-        </div>
-    </nav>
+            </div>
+            </nav>
 
-    <!--end navigation -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2">Dashboard</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group mr-2">
+                    <button class="btn btn-sm btn-outline-secondary">Share</button>
+                    <button class="btn btn-sm btn-outline-secondary">Export</button>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                    <span data-feather="calendar"></span>
+                    This week
+                </button>
+                </div>
+            </div>

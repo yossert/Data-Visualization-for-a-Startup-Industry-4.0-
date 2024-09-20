@@ -1,7 +1,6 @@
     <!-- start including header-->
     <?php 
     include('./mainInclude/header.php');
-    include('./dbConnection.php')
     ?>
     <!-- end including header-->
     <!--start video background -->
@@ -15,6 +14,7 @@
         <div class="vid-content">
             <h1 class="my-content">Welcome to 4IOT</h1>
             <small class="fo">Navigating Intelligence Beyond Boundaries</small><br/>
+
             <?php 
                 if(!isset($_SESSION['is_login'])){
                     echo'<a href="#" class="btn btn-danger mt-3" style="background-color: #97062a; border-color: #97062a " data-toggle="modal" data-target="#stuRegModalCenter">Get Started</a> ';
@@ -103,75 +103,49 @@
 
 
     <!--start testimonial -->
-    <h1 id="testimonial" class="text-center testyheading p-4 tit">Feedback</h1>
-    <div id="carouselExampleControls" class="carousel slide carousel-dark" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="container-fluid mt-5" style="background-color: #f3d3d3" id="Feedback">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div id="testimonial-slider"class="owl-carousel">
-                            <?php
-                                $sql = "SELECT s.stu_name, s.stu_occ, s.stu_img, f.f_content FROM student AS s Join feedback AS f ON s.stu_id = f.stu_id";
-                                $result = $conn->query($sql);
-                                if($result-> num_rows > 0){
-                                    while($row = $result->fetch_assoc()){
-                                        $s_img = $row['stu_img'];
-                                        $n_img = str_replace('..', '.', $s_img);
-                            ?>
-                            <div class="testimonial">
-                                <p class="description">
-                                    <?php
-                                    echo $row['f_content'];
-                                    ?>
-                                </p>
-                                <div class="pic">
-                                    <img src="<?php echo $n_img ?>" alt=""/>
-                                </div>
-                                <div class="testimonial-prof">
-                                    <h4><?php echo $row['stu_name'] ?></h4>
-                                    <small><?php echo $row['stu_occ'] ?></small>
-                                </div>
-                            </div>
-                            <?php
-                            }}
-                            ?>
+    <h1 class="text-center testyheading p-4 tit">Feedback</h1>
+    <div class="container-fluid mt-5" style="background-color: #f3d3d3" id="Feedback">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="testimonial-slider"class="owl-carousel">
+                    <div class="testimonial">
+                        <p class="description">
+                            good Website
+                        </p>
+                        <div class="pic">
+                            <img src="image/user/user1.png" alt="user" class="il">
+                        </div>
+                        <div class="testimonial-prof">
+                            <h4>Sonam</h4>
+                            <small>Web Developper</small>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-        </button>
     </div>
     <!--end testimonial -->
-    
 
     <!-- start social follow-->
     <div class="container-fluid bg-dark">
         <div class="row  text-white text-center p-1">
             <div class="col-sm">
-                <a class="text-white social-hover" href="https://www.facebook.com/">
+                <a class="text-white social-hover" href="#">
                     <i class="fab fa-facebook-f"></i>  Facebook
                 </a>
             </div>
             <div class="col-sm">
-                <a class="text-white social-hover" href="https://twitter.com/">
+                <a class="text-white social-hover" href="#">
                     <i class="fab fa-twitter"></i>  Twitter
                 </a>
             </div>
             <div class="col-sm">
-                <a class="text-white social-hover" href="https://web.whatsapp.com/">
+                <a class="text-white social-hover" href="#">
                     <i class="fab fa-whatsapp"></i>  WhatsAPP
                 </a>
             </div>
             <div class="col-sm">
-                <a class="text-white social-hover" href="https://www.instagram.com/">
+                <a class="text-white social-hover" href="#">
                     <i class="fab fa-instagram"></i>  Instagram
                 </a>
             </div>

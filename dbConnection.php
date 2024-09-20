@@ -1,12 +1,19 @@
 <?php 
-function Connect(){
-    $servername = "localhost";
-    $DBuser = "root";
-    $password = "";
-    $DBname = "miniprojet";
-    $conn = new PDO("mysql:host=$servername;dbname=$DBname", $DBuser, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    return $conn;
+$db_host="localhost";
+$db_user="root";
+$db_password="";
+$db_name="miniprojet";
 
+//create connection
+
+$conn=new mysqli($db_host, $db_user,$db_password,$db_name);
+
+//ckek connection
+
+if($conn ->connect_error){
+    die("connection failed");
 }
+//else{
+//    echo"connected";
+// }
 ?>

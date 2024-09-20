@@ -1,31 +1,5 @@
-
-<?php
-include('./dbConnection.php');
-        if (empty($_REQUEST['name']) || empty($_REQUEST['subject']) || empty($_REQUEST['email']) || empty($_REQUEST['message'])) {
-            // Message affiché si l'un des champs requis est manquant
-            $passmsg = '<div class="alert alert-warning col-sm-6 ml-5 mt-2" role="alert"> Fill All Fields </div>';
-        } else {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $subject = $_POST['subject'];
-        $message = $_POST['message'];
-        $sql= "INSERT INTO contact (contact_name,contact_email,subject,msg) VALUES ('$name', '$email', '$subject', '$message')";
-        if ($conn->query($sql) == TRUE) {
-            //bellow msg display on form submit success
-            $passmsg = '<div class="alert alert-success col-sm-6 ml-5 mt-2" role="alert"> Submit Successfully</div>';
-        } else {
-            //below msg display on form submit failed
-            $passmsg = '<div class="alert alert-danger col-sm-6 ml-5 mt-2" role="alert"> Unable to Submit: ' . $conn->error . '</div>';
-            echo "MySQL Error: " . $conn->error; // Message de débogage
-        }}
-        
-
-
-?>
-
-
 <!--start contact us -->
-<div class="container mt-4" id="contact-us">
+<div class="container mt-4" id="contact">
     <!--start contact us container-->
     <h1 class="text-center mb4 tit">Contact Us</h1><br>
     <!--contact us heading-->
@@ -38,7 +12,7 @@ include('./dbConnection.php');
                 <input type="text" class="form-control" name="subject" placeholder="Subject"><br>
                 <input type="email" class="form-control" name="email" placeholder="E-mail"><br>
                 <textarea class="form-control" name="message" placeholder="How can we help you?" style="height:150px;"></textarea><br>
-                <input class="btn btn-primary btn-pink btn-lg" type="submit" value="Send" name="submit"> <?php echo  $passmsg; ?>
+                <input class="btn btn-primary btn-pink btn-lg" type="submit" value="Send" name="submit"><br><br>
             </form>
         </div>
         <!--end contact us 1st column-->

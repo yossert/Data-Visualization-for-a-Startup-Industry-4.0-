@@ -31,35 +31,34 @@ if(isset($stuLogEmail)){
 
         <title>User Dashboard Template</title>
 
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
         <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
 
         <!--icone material -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+
         <!-- Bootstrap core CSS -->
         <link href="bootstrap.min.css" rel="stylesheet">
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
-        <!-- Custom styles for this template -->
-        <link href="dashboard.css" rel="stylesheet">
+         <!-- Custom styles for this template -->
+         <link href="dashboard.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons-symbol@1.3.0/outlined/material-icons-symbol-outlined.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons-symbol@1.3.0/outlined/material-icons-symbol-outlined.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 
-        <!-- key-->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        
+<!-- key-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
         <style>
             footer {
@@ -73,8 +72,8 @@ if(isset($stuLogEmail)){
     
 }
 
-/* Ajoutez ces classes à votre fichier CSS */
-.dark-mode {
+ /* Ajoutez ces classes à votre fichier CSS */
+    .dark-mode {
             background-color: #1a1a1a;
             color: #727171;
         }
@@ -83,10 +82,12 @@ if(isset($stuLogEmail)){
             background-color: #ffffff;
             color: #000000;
         }
-        .a{
-            font-family: 'Oswald', sans-serif;
-            font-size: 17px;
-        }
+
+        .a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 17px;
+}
+
 
         .nav-link:hover {
     transform: translateX(10px); /* Ajustez la valeur selon votre préférence de décalage */   
@@ -101,6 +102,8 @@ if(isset($stuLogEmail)){
     font-size: 16px; /* Ajustez la taille de la police selon vos besoins */
     font-weight: bold; /* Ajoutez cette ligne pour rendre le texte en gras */
 }
+
+
 
 
 
@@ -127,11 +130,11 @@ if(isset($stuLogEmail)){
                     <img src="<?php echo $stu_img ?>" alt="user" class="img-thumbnail rounded-circle">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link a active" href="studentProfile.php">
-                        <span class="material-symbols-outlined">user_attributes</span>
-                        Profile <span class="sr-only">(current)</span>
-                    </a>
-                </li>
+    <a class="nav-link a" href="studentProfile.php">
+        <span class="material-symbols-outlined">user_attributes</span>
+        Profile <span class="sr-only">(current)</span>
+    </a>
+</li>
 
 
                 <li class="nav-item">
@@ -147,7 +150,7 @@ if(isset($stuLogEmail)){
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link a" href="studentChangePass.php">
+                    <a class="nav-link a active" href="studentChangePass.php">
                     <span class="material-symbols-outlined">manage_accounts</span>
                     Change Password
                     </a>
@@ -185,6 +188,7 @@ if(isset($stuLogEmail)){
                     </div>
                 </div>
             </div>
+
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
             <script>
@@ -217,6 +221,4 @@ if(isset($stuLogEmail)){
         });
     </script>
     </body>
-</html>
-
-            
+    </html>

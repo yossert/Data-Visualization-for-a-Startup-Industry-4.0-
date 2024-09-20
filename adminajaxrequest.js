@@ -1,12 +1,10 @@
 //ajax call for login verification
 function checkAdminLogin(){
-    console.log("button clicked");
+    //console.log("button clicked");
     var adminLogEmail =$("#adminLogemail").val();
     var adminLogPass =$("#adminLogpass").val();
-    console.log("Email:", adminLogEmail);
-    console.log("Password:", adminLogPass);
     $.ajax({
-        url: 'Admin/adminDashboard.php',
+        url:'Admin/admin.php',
         method : "POST",
         data:{
             checkLogemail: "checklogmail",
